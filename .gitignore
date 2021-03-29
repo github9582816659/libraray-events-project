@@ -1,0 +1,12 @@
+.idea
+*.iml
+target
+
+api/.idea
+api/*.iml
+api/target
+
+app/node_modules
+app/.idea
+app/*.iml
+app/*.next
