@@ -79,12 +79,12 @@ public class LibraryEventProducer {
         listenableFuture.addCallback(new ListenableFutureCallback<SendResult<Integer, String>>() {
             @Override
             public void onFailure(Throwable ex) {
-                handleFailure(key,value,ex);
+                handleFailure(key, value, ex);
             }
 
             @Override
             public void onSuccess(SendResult<Integer, String> result) {
-                handleSuccess(key,value,result);
+                handleSuccess(key, value, result);
             }
         });
 
@@ -93,7 +93,7 @@ public class LibraryEventProducer {
 
     private ProducerRecord<Integer, String> buildProducerRecord(String topic, Object o, Integer key, String value, Object o1) {
         List<Header> headerRecord = List.of(new RecordHeader("event-source", "scanner".getBytes()), new RecordHeader("app", "spring-boot-producer".getBytes()));
-        return new ProducerRecord<>(topic,null,key,value,headerRecord);
+        return new ProducerRecord<>(topic, null, key, value, headerRecord);
     }
 
     private void handleFailure(Integer key, String value, Throwable ex) {
@@ -106,6 +106,6 @@ public class LibraryEventProducer {
     }
 
     private void handleSuccess(Integer key, String value, SendResult<Integer, String> result) {
-        log.info("Message sent successfully for the key : {} and the value is {}, partition is {}", key,value, result.getRecordMetadata().partition());
+        log.info("Message sent successfully for the key : {} and the value is {}, topic {}, partition is {}", key, value, result.getRecordMetadata().topic(), result.getRecordMetadata().partition());
     }
 }
