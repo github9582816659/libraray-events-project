@@ -6,7 +6,6 @@ import com.kafka.consumer.entity.LibraryEvent;
 import com.kafka.consumer.repository.LibraryEventRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;

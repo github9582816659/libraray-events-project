@@ -106,6 +106,6 @@ public class LibraryEventProducer {
     }
 
     private void handleSuccess(Integer key, String value, SendResult<Integer, String> result) {
-        log.info("Message sent successfully for the key : {} and the value is {}, topic {}, partition is {}", key, value, result.getRecordMetadata().topic(), result.getRecordMetadata().partition());
+        log.info("Message sent successfully: \n Key: {}, \n Value {}, \n Topic: {},\n Partition: {},\n Offset: {},\n", key, value, result.getRecordMetadata().topic(), result.getRecordMetadata().partition(), result.getRecordMetadata().offset());
     }
 }
